@@ -1,0 +1,431 @@
+.shorten-box {
+  width: 1110px;
+  height: 170px;
+  background: url("../images/bg-shorten-desktop.svg");
+  background-size: 100% 100%;
+  background-color: #3b3054;
+  border-radius: 15px;
+  padding: 52px 64px;
+  position: absolute;
+  top: 0;
+  top: -85px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.shorten-box__input {
+  width: 770px;
+  height: 64px;
+  color: #9e9aa7;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  padding-left: 22px;
+}
+
+.shorten-box__btn {
+  background-color: #2acfcf;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  width: 188px;
+  height: 64px;
+  font-size: 18px;
+}
+
+.shorten-box__btn:hover {
+  background-color: #9be3e2;
+}
+
+.links-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1110px;
+  margin-top: 105px;
+}
+
+.result {
+  background-color: white;
+  height: 65px;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  font-size: 20px;
+}
+
+.result__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.result__link--shorten {
+  color: #2acfcf;
+  padding: 25px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .header {
+  width: 100%;
+  height: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .header__navbar {
+  width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 48px 165px 0 165px;
+}
+
+.App .header__menu {
+  width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .header__btn {
+  margin-right: 35px;
+}
+
+.App .header__content {
+  width: 1440px;
+  margin-top: 78px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 165px;
+}
+
+.App .header__illustration {
+  position: relative;
+  left: 120px;
+}
+
+.App .header__title--s {
+  width: 440px;
+  margin-bottom: 40px;
+}
+
+.App .logo {
+  width: auto;
+  height: 35px;
+  margin-right: 35px;
+  cursor: pointer;
+}
+
+.App .btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #9e9aa7;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.App .btn:hover {
+  color: #232127;
+}
+
+.App .btn--highlighted {
+  background-color: #2acfcf;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  width: 105px;
+  height: 40px;
+}
+
+.App .btn--highlighted:hover {
+  background-color: #9be3e2;
+  color: white;
+}
+
+.App .btn--large {
+  width: 200px;
+  height: 56px;
+  font-size: 16px;
+  border-radius: 28px;
+}
+
+.App .main {
+  width: 100%;
+  background-color: #f0f1f6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.App .main__title {
+  margin-top: 100px;
+}
+
+.App .main__title--s {
+  padding-top: 30px;
+  width: 540px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.App .title {
+  font-size: 60px;
+  color: #232127;
+  line-height: 70px;
+}
+
+.App .title--l {
+  font-size: 60px;
+  line-height: 70px;
+  font-weight: 700;
+}
+
+.App .title--m {
+  font-size: 35px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.App .title--s {
+  color: #9e9aa7;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.App .cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 105px;
+  height: 450px;
+  position: relative;
+}
+
+.App .cards-container__line {
+  background-color: #2acfcf;
+  height: 10px;
+  width: 800px;
+  position: absolute;
+  top: 150px;
+  left: 20px;
+}
+
+.App .cards-container .card {
+  width: 355px;
+  height: 270px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 34px;
+  position: relative;
+  margin: 0 15px;
+}
+
+.App .cards-container .card--middle {
+  top: 45px;
+}
+
+.App .cards-container .card--last {
+  top: 90px;
+}
+
+.App .cards-container .card__circle {
+  background-color: #3b3054;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -45px;
+}
+
+.App .cards-container .card__title {
+  color: #232127;
+  margin-top: 80px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.App .cards-container .card__text {
+  margin-top: 20px;
+  color: #9e9aa7;
+  font-size: 15px;
+}
+
+.App .footer {
+  width: 100%;
+  height: 310px;
+  background-color: #232127;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 70px;
+  color: white;
+}
+
+.App .footer__container {
+  width: 1110px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 170px;
+      grid-template-columns: 1fr 1fr 170px;
+}
+
+.App .footer-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 465px;
+  margin-right: 100px;
+}
+
+.App .footer-menu__list {
+  color: white;
+  list-style: none;
+  font-weight: 700;
+}
+
+.App .footer-menu__item {
+  color: #bfbfbf;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.App .footer-menu__item--first {
+  margin-top: 20px;
+}
+
+.App .ad {
+  height: 250px;
+  background: url("../images/bg-boost-desktop.svg") center;
+  background-size: 100% 100%;
+  background-color: #3b3054;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .ad__title {
+  color: white;
+  font-size: 45px;
+}
+
+.App .ad__btn {
+  width: 200px;
+  height: 56px;
+  border-radius: 28px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.App .smedia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .smedia__icon {
+  height: 25px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

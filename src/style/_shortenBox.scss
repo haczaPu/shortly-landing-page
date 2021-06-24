@@ -1,0 +1,39 @@
+.shorten-box {
+  width: 1110px;
+  height: 170px;
+  background: url("../images/bg-shorten-desktop.svg");
+  background-size: 100% 100%;
+  background-color: $c-pri-viol;
+  border-radius: 15px;
+  padding: 52px 64px;
+  position: absolute;
+  top: 0;
+  top: -85px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  &__input {
+    width: 770px;
+    height: 64px;
+    color: $c-neu-violet;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    padding-left: 22px;
+  }
+
+  &__btn {
+    background-color: $c-pri-cyan;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    width: 188px;
+    height: 64px;
+    font-size: 18px;
+    &:hover {
+      background-color: $c-neu-cyan;
+    }
+  }
+}
