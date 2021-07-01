@@ -14,25 +14,29 @@ function App() {
 
   //Shorten url on btn click
   const getData = e => {
-    e.preventDefault();
-    setLoading(true);
-    setInput("");
-    setErrorMessage("");
-    axios
-      .get(`https://api.shrtco.de/v2/shorten?url=${input}`)
-      .then(response => {
-        setData(response.data.result);
-        setResults([
-          ...results,
-          { original_link: response.data.result.original_link, short_link: response.data.result.short_link },
-        ]);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-        setErrorMessage("Invaild URL");
-        setLoading(false);
-      });
+    if (input !== "") {
+      e.preventDefault();
+      setLoading(true);
+      setInput("");
+      setErrorMessage("");
+      axios
+        .get(`https://api.shrtco.de/v2/shorten?url=${input}`)
+        .then(response => {
+          setData(response.data.result);
+          setResults([
+            ...results,
+            { original_link: response.data.result.original_link, short_link: response.data.result.short_link },
+          ]);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setErrorMessage("Invalid URL");
+          setLoading(false);
+        });
+    } else {
+      setErrorMessage("Please add a link");
+    }
   };
 
   //Input change
