@@ -43,6 +43,12 @@
   background-color: #9be3e2;
 }
 
+.err-message {
+  color: #ff6464;
+  top: 120px;
+  position: absolute;
+}
+
 .links-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;

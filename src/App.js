@@ -1,20 +1,23 @@
 import "./style/style.css";
 import ShortenBox from "./components/ShortenBox";
 import LinksWrapper from "./components/LinksWrapper";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import useLocalStorage from "./components/UseLocalStorage";
 import axios from "axios";
 
 function App() {
   const [data, setData] = useState(null);
   const [input, setInput] = useState("");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useLocalStorage("results", []);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   //Shorten url on btn click
   const getData = e => {
     e.preventDefault();
     setLoading(true);
     setInput("");
+    setErrorMessage("");
     axios
       .get(`https://api.shrtco.de/v2/shorten?url=${input}`)
       .then(response => {
@@ -25,8 +28,10 @@ function App() {
         ]);
         setLoading(false);
       })
-      .catch(function (error) {
+      .catch(error => {
         console.log(error);
+        setErrorMessage("Invaild URL");
+        setLoading(false);
       });
   };
 
@@ -48,27 +53,6 @@ function App() {
     e.target.innerHTML = "Copied!";
     e.target.classList.add("btn--copied");
   };
-
-  //Save links to local
-  useEffect(() => {
-    const saveLocalLinks = () => {
-      localStorage.setItem("savedLinks", JSON.stringify(results));
-    };
-    saveLocalLinks();
-  }, [results]);
-
-  //Get links from local
-  useEffect(() => {
-    const getLocalLinks = () => {
-      if (localStorage.getItem("savedLinks") === null) {
-        localStorage.setItem("savedLinks", JSON.stringify([]));
-      } else {
-        let linksLocal = JSON.parse(localStorage.getItem("savedLinks"));
-        setResults(linksLocal);
-      }
-    };
-    getLocalLinks();
-  }, []);
 
   return (
     <div className="App">
@@ -104,7 +88,7 @@ function App() {
       </header>
 
       <main className="main">
-        <ShortenBox getData={getData} input={input} handleInput={handleInput} />
+        <ShortenBox getData={getData} input={input} handleInput={handleInput} errorMessage={errorMessage} />
         <LinksWrapper loading={loading} data={data} results={results} handleCopy={handleCopy} />
         <h2 className="title title--m main__title">Advanced Statistics</h2>
         <p className="title title--s main__title--s">
