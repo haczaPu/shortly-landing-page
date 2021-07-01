@@ -100,6 +100,10 @@
       height: 36px;
       border-radius: 5px;
     }
+
+    &--copied {
+      background-color: $c-pri-viol;
+    }
   }
 
   .main {

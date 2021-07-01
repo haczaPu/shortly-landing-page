@@ -217,6 +217,10 @@
   border-radius: 5px;
 }
 
+.App .btn--copied {
+  background-color: #3b3054;
+}
+
 .App .main {
   width: 100%;
   background-color: #f0f1f6;

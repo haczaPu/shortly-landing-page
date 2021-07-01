@@ -1,8 +1,75 @@
 import "./style/style.css";
 import ShortenBox from "./components/ShortenBox";
 import LinksWrapper from "./components/LinksWrapper";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const [data, setData] = useState(null);
+  const [input, setInput] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  //Shorten url on btn click
+  const getData = e => {
+    e.preventDefault();
+    setLoading(true);
+    setInput("");
+    axios
+      .get(`https://api.shrtco.de/v2/shorten?url=${input}`)
+      .then(response => {
+        setData(response.data.result);
+        setResults([
+          ...results,
+          { original_link: response.data.result.original_link, short_link: response.data.result.short_link },
+        ]);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  //Input change
+  const handleInput = e => {
+    setInput(e.target.value);
+  };
+
+  //Copy link
+  const handleCopy = e => {
+    const copyBtn = e.target.parentNode.childNodes[0].innerHTML;
+    navigator.clipboard.writeText(copyBtn);
+
+    const allCopyBtns = document.querySelectorAll(".btn--copied");
+    allCopyBtns.forEach(btn => {
+      btn.innerHTML = "Copy";
+      btn.classList.remove("btn--copied");
+    });
+    e.target.innerHTML = "Copied!";
+    e.target.classList.add("btn--copied");
+  };
+
+  //Save links to local
+  useEffect(() => {
+    const saveLocalLinks = () => {
+      localStorage.setItem("savedLinks", JSON.stringify(results));
+    };
+    saveLocalLinks();
+  }, [results]);
+
+  //Get links from local
+  useEffect(() => {
+    const getLocalLinks = () => {
+      if (localStorage.getItem("savedLinks") === null) {
+        localStorage.setItem("savedLinks", JSON.stringify([]));
+      } else {
+        let linksLocal = JSON.parse(localStorage.getItem("savedLinks"));
+        setResults(linksLocal);
+      }
+    };
+    getLocalLinks();
+  }, []);
+
   return (
     <div className="App">
       <header className="header">
@@ -37,8 +104,8 @@ function App() {
       </header>
 
       <main className="main">
-        <ShortenBox />
-        <LinksWrapper />
+        <ShortenBox getData={getData} input={input} handleInput={handleInput} />
+        <LinksWrapper loading={loading} data={data} results={results} handleCopy={handleCopy} />
         <h2 className="title title--m main__title">Advanced Statistics</h2>
         <p className="title title--s main__title--s">
           Track how your links are performing across the web with our advanced statistics dashboard.
