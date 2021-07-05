@@ -4,6 +4,9 @@ import LinksWrapper from "./components/LinksWrapper";
 import { useState } from "react";
 import useLocalStorage from "./components/UseLocalStorage";
 import axios from "axios";
+import { FaInstagram, FaTwitter, FaFacebookSquare, FaPinterest } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import { Squash as Hamburger } from "hamburger-react";
 
 function App() {
   const [data, setData] = useState(null);
@@ -63,7 +66,11 @@ function App() {
       <header className="header">
         <nav className="header__navbar">
           <img src={`/assets/images/logo.svg`} alt="logo" className="logo" />
+
           <div className="header__menu">
+            <div className="hamburger">
+              <Hamburger color="hsl(257, 7%, 63%)" />
+            </div>
             <div className="btns-container">
               <button className="btn header__btn">Features</button>
               <button className="btn header__btn">Pricing</button>
@@ -92,7 +99,13 @@ function App() {
       </header>
 
       <main className="main">
-        <ShortenBox getData={getData} input={input} handleInput={handleInput} errorMessage={errorMessage} />
+        <ShortenBox
+          getData={getData}
+          input={input}
+          loading={loading}
+          handleInput={handleInput}
+          errorMessage={errorMessage}
+        />
         <LinksWrapper loading={loading} data={data} results={results} handleCopy={handleCopy} />
         <h2 className="title title--m main__title">Advanced Statistics</h2>
         <p className="title title--s main__title--s">
@@ -144,7 +157,7 @@ function App() {
       </div>
       <footer className="footer">
         <div className="footer__container">
-          <img src={`/assets/images/logo_w.svg`} alt="logo" className="logo" />
+          <img src={`/assets/images/logo_w.svg`} alt="logo" className="logo logo--footer" />
 
           <div className="footer-menu">
             <ul className="footer-menu__list">
@@ -168,10 +181,12 @@ function App() {
             </ul>
           </div>
           <div className="smedia">
-            <img src="/assets/images/icon-facebook.svg" alt="" className="smedia__icon" />
-            <img src="/assets/images/icon-twitter.svg" alt="" className="smedia__icon" />
-            <img src="/assets/images/icon-pinterest.svg" alt="" className="smedia__icon" />
-            <img src="/assets/images/icon-instagram.svg" alt="" className="smedia__icon" />
+            <IconContext.Provider value={{ className: "smedia__icon", size: "25px" }}>
+              <FaFacebookSquare />
+              <FaTwitter />
+              <FaPinterest />
+              <FaInstagram />
+            </IconContext.Provider>
           </div>
         </div>
       </footer>

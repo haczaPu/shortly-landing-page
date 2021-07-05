@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShortenBox = ({ getData, input, handleInput, errorMessage }) => {
+const ShortenBox = ({ getData, input, handleInput, errorMessage, loading }) => {
   return (
     <>
       <div className="shorten-box">
@@ -13,8 +13,8 @@ const ShortenBox = ({ getData, input, handleInput, errorMessage }) => {
           style={{ boxShadow: errorMessage ? "0 0 0px 3px rgb( 255,100, 100)" : null }}
         />
         {errorMessage && <p className="err-message">{errorMessage}</p>}
-        <button className="shorten-box__btn" onClick={getData}>
-          Shorten It!
+        <button className="shorten-box__btn" onClick={getData} disabled={loading}>
+          {loading ? " Working on it" : "Shorten It!"}
         </button>
       </div>
     </>

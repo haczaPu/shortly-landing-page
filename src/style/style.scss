@@ -1,6 +1,7 @@
 @import "_vars";
 @import "_shortenBox";
 @import "_linksWrapper";
+@import "_breakpoints";
 
 * {
   box-sizing: border-box;
@@ -20,21 +21,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include breakpoint(tablet) {
+      height: 100%;
+    }
+    @include breakpoint(mobile) {
+      height: 100%;
+    }
 
     &__navbar {
       width: 1440px;
       display: flex;
       padding: 48px 165px 0 165px;
+      @include breakpoint(laptop) {
+        width: 100%;
+        padding: 48px 70px 0 70px;
+      }
+      @include breakpoint(tablet) {
+        width: 100%;
+        padding: 48px 70px 0 70px;
+      }
+      @include breakpoint(mobile) {
+        width: 100%;
+        padding: 48px 70px 0 70px;
+      }
     }
 
     &__menu {
       width: 1440px;
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
     }
 
     &__btn {
       margin-right: 35px;
+      @include breakpoint(laptop) {
+        margin-right: 30px;
+      }
+      @include breakpoint(tablet) {
+        margin-right: 30px;
+      }
+      @include breakpoint(mobile) {
+        margin-right: 30px;
+      }
     }
 
     &__content {
@@ -43,17 +72,64 @@
       display: flex;
       align-items: center;
       padding-left: 165px;
+      @include breakpoint(laptop) {
+        width: 100%;
+        padding-left: 70px;
+      }
+      @include breakpoint(tablet) {
+        width: 100%;
+        padding-left: 0px;
+        padding: 25px;
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 0;
+      }
+      @include breakpoint(mobile) {
+        width: 100%;
+        padding-left: 0px;
+        padding: 25px;
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 0;
+      }
     }
 
     &__illustration {
       position: relative;
       left: 120px;
+
+      @include breakpoint(laptop) {
+        left: 30px;
+        z-index: -1;
+      }
+      @include breakpoint(tablet) {
+        width: 110%;
+        left: 40px;
+        z-index: -1;
+      }
+      @include breakpoint(mobile) {
+        width: 110%;
+        left: 40px;
+        z-index: -1;
+      }
     }
 
     &__title {
+      @include breakpoint(tablet) {
+        margin-top: 50px;
+      }
+      @include breakpoint(mobile) {
+        margin-top: 50px;
+      }
       &--s {
         width: 440px;
         margin-bottom: 40px;
+        @include breakpoint(laptop) {
+          width: 300px;
+        }
+        @include breakpoint(tablet) {
+          width: 300px;
+        }
       }
     }
   }
@@ -63,6 +139,16 @@
     height: 35px;
     margin-right: 35px;
     cursor: pointer;
+    position: relative;
+    top: 8px;
+    &--footer {
+      @include breakpoint(tablet) {
+        margin: auto;
+      }
+      @include breakpoint(mobile) {
+        margin: auto;
+      }
+    }
   }
 
   .btn {
@@ -71,7 +157,7 @@
     cursor: pointer;
     color: $c-neu-violet;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     &:hover {
       color: $c-neu-dark-violet;
     }
@@ -99,6 +185,10 @@
       width: 92px;
       height: 36px;
       border-radius: 5px;
+      @include breakpoint(mobile) {
+        width: 100%;
+        height: 40px;
+      }
     }
 
     &--copied {
@@ -114,6 +204,9 @@
     align-items: center;
     position: relative;
     padding-top: 105px;
+    @include breakpoint(mobile) {
+      margin-top: 130px;
+    }
 
     &__title {
       margin-top: 100px;
@@ -131,11 +224,21 @@
     font-size: 60px;
     color: $c-neu-dark-violet;
     line-height: 70px;
+    @include breakpoint(tablet) {
+      text-align: center;
+    }
+    @include breakpoint(mobile) {
+      text-align: center;
+    }
 
     &--l {
       font-size: 60px;
       line-height: 70px;
       font-weight: 700;
+
+      @include breakpoint(mobile) {
+        font-size: 50px;
+      }
     }
 
     &--m {
@@ -149,6 +252,12 @@
       font-size: 18px;
       line-height: 30px;
       font-weight: 500;
+      @include breakpoint(tablet) {
+        width: 90%;
+      }
+      @include breakpoint(mobile) {
+        width: 90%;
+      }
     }
   }
 
@@ -158,6 +267,19 @@
     height: 450px;
     position: relative;
 
+    @include breakpoint(laptop) {
+      flex-direction: column;
+      height: 1100px;
+    }
+    @include breakpoint(tablet) {
+      flex-direction: column;
+      height: 1100px;
+    }
+    @include breakpoint(mobile) {
+      flex-direction: column;
+      height: 1100px;
+    }
+
     &__line {
       background-color: $c-pri-cyan;
       height: 10px;
@@ -165,6 +287,24 @@
       position: absolute;
       top: 150px;
       left: 20px;
+      @include breakpoint(laptop) {
+        height: 800px;
+        width: 10px;
+        top: 50px;
+        left: 188px;
+      }
+      @include breakpoint(tablet) {
+        height: 800px;
+        width: 10px;
+        top: 50px;
+        left: 188px;
+      }
+      @include breakpoint(mobile) {
+        height: 800px;
+        width: 10px;
+        top: 50px;
+        left: 188px;
+      }
     }
 
     .card {
@@ -175,13 +315,40 @@
       padding: 0 34px;
       position: relative;
       margin: 0 15px;
+      @include breakpoint(laptop) {
+        text-align: center;
+      }
+      @include breakpoint(tablet) {
+        text-align: center;
+      }
+      @include breakpoint(mobile) {
+        text-align: center;
+      }
 
       &--middle {
         top: 45px;
+        @include breakpoint(laptop) {
+          top: 100px;
+        }
+        @include breakpoint(tablet) {
+          top: 100px;
+        }
+        @include breakpoint(mobile) {
+          top: 100px;
+        }
       }
 
       &--last {
         top: 90px;
+        @include breakpoint(laptop) {
+          top: 200px;
+        }
+        @include breakpoint(tablet) {
+          top: 200px;
+        }
+        @include breakpoint(mobile) {
+          top: 200px;
+        }
       }
 
       &__circle {
@@ -195,6 +362,15 @@
         align-items: center;
         position: absolute;
         top: -45px;
+        @include breakpoint(laptop) {
+          left: 132px;
+        }
+        @include breakpoint(tablet) {
+          left: 132px;
+        }
+        @include breakpoint(mobile) {
+          left: 132px;
+        }
       }
 
       &__title {
@@ -218,13 +394,35 @@
     background-color: $c-neu-dark-violet;
     display: flex;
     justify-content: center;
-    padding-top: 70px;
+    padding: 70px 0 0 0;
     color: white;
+    @include breakpoint(laptop) {
+      padding: 70px 40px 0 40px;
+    }
+    @include breakpoint(tablet) {
+      padding: 50px 25px 0 25px;
+      height: 100%;
+    }
+    @include breakpoint(mobile) {
+      padding: 50px 0 0 0;
+      height: 100%;
+    }
 
     &__container {
       width: 1110px;
       display: grid;
       grid-template-columns: 1fr 1fr 170px;
+      @include breakpoint(laptop) {
+        grid-template-columns: 1fr 1.5fr 1fr;
+      }
+      @include breakpoint(tablet) {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+      @include breakpoint(mobile) {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
     }
   }
 
@@ -233,11 +431,32 @@
     justify-content: space-between;
     width: 465px;
     margin-right: 100px;
+    @include breakpoint(laptop) {
+      width: 100%;
+    }
+    @include breakpoint(tablet) {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+    }
+    @include breakpoint(mobile) {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+    }
 
     &__list {
       color: white;
       list-style: none;
       font-weight: 700;
+      @include breakpoint(tablet) {
+        padding-top: 50px;
+      }
+      @include breakpoint(mobile) {
+        padding-top: 50px;
+      }
     }
     &__item {
       color: $c-neu-grey;
@@ -267,6 +486,12 @@
     &__title {
       color: white;
       font-size: 45px;
+      @include breakpoint(tablet) {
+        font-size: 36px;
+      }
+      @include breakpoint(mobile) {
+        font-size: 30px;
+      }
     }
 
     &__btn {
@@ -280,13 +505,34 @@
   .smedia {
     display: flex;
     justify-content: space-between;
+    @include breakpoint(laptop) {
+      margin-left: auto;
+      width: 150px;
+    }
+    @include breakpoint(tablet) {
+      margin: 50px auto;
+      width: 150px;
+    }
+    @include breakpoint(mobile) {
+      margin: 50px auto;
+      width: 150px;
+    }
 
     &__icon {
-      height: 25px;
       cursor: pointer;
       &:hover {
-        filter: brightness(50) invert(100);
+        color: $c-pri-cyan;
       }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    @include breakpoint(tablet) {
+      display: none;
+    }
+    @include breakpoint(mobile) {
+      display: none;
     }
   }
 }
