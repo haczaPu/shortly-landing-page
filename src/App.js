@@ -1,12 +1,13 @@
 import "./style/style.css";
 import ShortenBox from "./components/ShortenBox";
 import LinksWrapper from "./components/LinksWrapper";
-import { useState } from "react";
+import HamburgerMenu from "./components/HamburgerMenu";
+import DesktopMenu from "./components/DesktopMenu";
+import { useState, useEffect } from "react";
 import useLocalStorage from "./components/UseLocalStorage";
 import axios from "axios";
 import { FaInstagram, FaTwitter, FaFacebookSquare, FaPinterest } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { Squash as Hamburger } from "hamburger-react";
 
 function App() {
   const [data, setData] = useState(null);
@@ -14,6 +15,8 @@ function App() {
   const [results, setResults] = useLocalStorage("results", []);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isOpen, setOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   //Shorten url on btn click
   const getData = e => {
@@ -61,26 +64,17 @@ function App() {
     e.target.classList.add("btn--copied");
   };
 
+  //Window size listener
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  });
+
   return (
     <div className="App">
       <header className="header">
         <nav className="header__navbar">
           <img src={`/assets/images/logo.svg`} alt="logo" className="logo" />
-
-          <div className="header__menu">
-            <div className="hamburger">
-              <Hamburger color="hsl(257, 7%, 63%)" />
-            </div>
-            <div className="btns-container">
-              <button className="btn header__btn">Features</button>
-              <button className="btn header__btn">Pricing</button>
-              <button className="btn header__btn">Resources</button>
-            </div>
-            <div className="btns-container">
-              <button className="btn header__btn">Login</button>
-              <button className="btn btn--highlighted">Sign Up</button>
-            </div>
-          </div>
+          {width <= 768 ? <HamburgerMenu isOpen={isOpen} setOpen={setOpen} /> : <DesktopMenu />}
         </nav>
         <div className="header__content">
           <div className="titles-container">

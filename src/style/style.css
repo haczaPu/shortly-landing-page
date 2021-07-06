@@ -326,6 +326,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-x: hidden;
 }
 
 .App .header {
@@ -373,14 +374,22 @@
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .App .header__navbar {
     width: 100%;
-    padding: 48px 70px 0 70px;
+    padding: 25px 25px 0 25px;
+    position: relative;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
 @media screen and (max-width: 480px) {
   .App .header__navbar {
     width: 100%;
-    padding: 48px 70px 0 70px;
+    padding: 25px 25px 0 25px;
+    position: relative;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -397,6 +406,46 @@
           align-items: baseline;
 }
 
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .App .header__menu {
+    border-radius: 10px;
+    width: calc(100% - 50px);
+    background-color: #3b3054;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 100px;
+    left: 25px;
+    margin: auto;
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App .header__menu {
+    border-radius: 10px;
+    width: calc(100% - 50px);
+    background-color: #3b3054;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 100px;
+    left: 25px;
+    margin: auto;
+    padding: 25px;
+  }
+}
+
 .App .header__btn {
   margin-right: 35px;
 }
@@ -409,13 +458,13 @@
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .App .header__btn {
-    margin-right: 30px;
+    margin-right: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .App .header__btn {
-    margin-right: 30px;
+    margin-right: 0;
   }
 }
 
@@ -519,7 +568,53 @@
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .App .header__title--s {
-    width: 300px;
+    width: 90%;
+    margin: 0 auto 50px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App .header__title--s {
+    width: 90%;
+    margin: 0 auto 50px auto;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .App .btns-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .App .btns-container:last-child {
+    width: 100%;
+    border-top: #9e9aa7 1px solid;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App .btns-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .App .btns-container:last-child {
+    width: 100%;
+    border-top: #9e9aa7 1px solid;
   }
 }
 
@@ -555,6 +650,26 @@
 
 .App .btn:hover {
   color: #232127;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .App .btn {
+    color: white;
+    height: 40px;
+  }
+  .App .btn:hover {
+    color: #2acfcf;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App .btn {
+    color: white;
+    height: 50px;
+  }
+  .App .btn:hover {
+    color: #2acfcf;
+  }
 }
 
 .App .btn--highlighted {
@@ -595,6 +710,18 @@
   background-color: #3b3054;
 }
 
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .App .btn--wide {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App .btn--wide {
+    width: 100%;
+  }
+}
+
 .App .main {
   width: 100%;
   background-color: #f0f1f6;
@@ -610,6 +737,12 @@
           align-items: center;
   position: relative;
   padding-top: 105px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .App .main {
+    margin-top: 130px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -670,18 +803,6 @@
   font-size: 18px;
   line-height: 30px;
   font-weight: 500;
-}
-
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  .App .title--s {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .App .title--s {
-    width: 90%;
-  }
 }
 
 .App .cards-container {
@@ -934,7 +1055,7 @@
   .App .footer__container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    width: 100%;
+    width: auto;
   }
 }
 
@@ -942,7 +1063,7 @@
   .App .footer__container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    width: 100%;
+    width: auto;
   }
 }
 
@@ -1106,21 +1227,5 @@
 
 .App .smedia__icon:hover {
   color: #2acfcf;
-}
-
-.App .hamburger {
-  display: none;
-}
-
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  .App .hamburger {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .App .hamburger {
-    display: none;
-  }
 }
 /*# sourceMappingURL=style.css.map */

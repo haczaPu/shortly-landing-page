@@ -14,6 +14,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 
   .header {
     width: 100%;
@@ -38,11 +39,15 @@
       }
       @include breakpoint(tablet) {
         width: 100%;
-        padding: 48px 70px 0 70px;
+        padding: 25px 25px 0 25px;
+        position: relative;
+        justify-content: space-between;
       }
       @include breakpoint(mobile) {
         width: 100%;
-        padding: 48px 70px 0 70px;
+        padding: 25px 25px 0 25px;
+        position: relative;
+        justify-content: space-between;
       }
     }
 
@@ -51,6 +56,30 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      @include breakpoint(tablet) {
+        border-radius: 10px;
+        width: calc(100% - 50px);
+        background-color: $c-pri-viol;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        top: 100px;
+        left: 25px;
+        margin: auto;
+        padding: 25px;
+      }
+      @include breakpoint(mobile) {
+        border-radius: 10px;
+        width: calc(100% - 50px);
+        background-color: $c-pri-viol;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        top: 100px;
+        left: 25px;
+        margin: auto;
+        padding: 25px;
+      }
     }
 
     &__btn {
@@ -59,10 +88,10 @@
         margin-right: 30px;
       }
       @include breakpoint(tablet) {
-        margin-right: 30px;
+        margin-right: 0;
       }
       @include breakpoint(mobile) {
-        margin-right: 30px;
+        margin-right: 0;
       }
     }
 
@@ -72,6 +101,7 @@
       display: flex;
       align-items: center;
       padding-left: 165px;
+
       @include breakpoint(laptop) {
         width: 100%;
         padding-left: 70px;
@@ -128,8 +158,34 @@
           width: 300px;
         }
         @include breakpoint(tablet) {
-          width: 300px;
+          width: 90%;
+          margin: 0 auto 50px auto;
         }
+        @include breakpoint(mobile) {
+          width: 90%;
+          margin: 0 auto 50px auto;
+        }
+      }
+    }
+  }
+
+  .btns-container {
+    @include breakpoint(tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &:last-child {
+        width: 100%;
+        border-top: $c-neu-violet 1px solid;
+      }
+    }
+    @include breakpoint(mobile) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      &:last-child {
+        width: 100%;
+        border-top: $c-neu-violet 1px solid;
       }
     }
   }
@@ -161,6 +217,20 @@
     &:hover {
       color: $c-neu-dark-violet;
     }
+    @include breakpoint(tablet) {
+      color: white;
+      height: 40px;
+      &:hover {
+        color: $c-pri-cyan;
+      }
+    }
+    @include breakpoint(mobile) {
+      color: white;
+      height: 50px;
+      &:hover {
+        color: $c-pri-cyan;
+      }
+    }
 
     &--highlighted {
       background-color: $c-pri-cyan;
@@ -169,6 +239,7 @@
       border: none;
       width: 105px;
       height: 40px;
+
       &:hover {
         background-color: $c-neu-cyan;
         color: white;
@@ -194,6 +265,17 @@
     &--copied {
       background-color: $c-pri-viol;
     }
+
+    @include breakpoint(tablet) {
+      &--wide {
+        width: 100%;
+      }
+    }
+    @include breakpoint(mobile) {
+      &--wide {
+        width: 100%;
+      }
+    }
   }
 
   .main {
@@ -204,6 +286,9 @@
     align-items: center;
     position: relative;
     padding-top: 105px;
+    @include breakpoint(tablet) {
+      margin-top: 130px;
+    }
     @include breakpoint(mobile) {
       margin-top: 130px;
     }
@@ -252,12 +337,6 @@
       font-size: 18px;
       line-height: 30px;
       font-weight: 500;
-      @include breakpoint(tablet) {
-        width: 90%;
-      }
-      @include breakpoint(mobile) {
-        width: 90%;
-      }
     }
   }
 
@@ -417,11 +496,11 @@
       }
       @include breakpoint(tablet) {
         grid-template-columns: 1fr;
-        width: 100%;
+        width: auto;
       }
       @include breakpoint(mobile) {
         grid-template-columns: 1fr;
-        width: 100%;
+        width: auto;
       }
     }
   }
@@ -523,16 +602,6 @@
       &:hover {
         color: $c-pri-cyan;
       }
-    }
-  }
-
-  .hamburger {
-    display: none;
-    @include breakpoint(tablet) {
-      display: none;
-    }
-    @include breakpoint(mobile) {
-      display: none;
     }
   }
 }
