@@ -762,6 +762,12 @@
   font-size: 15px;
 }
 
+@media screen and (max-width: 480px) {
+  .App .main__title--s {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .App .main__title--s {
     width: 90%;

@@ -301,6 +301,9 @@
         width: 540px;
         text-align: center;
         font-size: 15px;
+        @include breakpoint(mobile) {
+          width: 90%;
+        }
         @include breakpoint(tablet) {
           width: 90%;
         }
